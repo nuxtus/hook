@@ -1,5 +1,5 @@
 {
-	"name": "directus-extension-nuxtus-hook",
+	"name": "@nuxtus/directus-extension-nuxtus-hook",
 	"version": "1.0.0",
 	"keywords": [
 		"directus",
