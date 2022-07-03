@@ -1,11 +1,15 @@
 {
 	"name": "@nuxtus/directus-extension-nuxtus-hook",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"keywords": [
 		"directus",
 		"directus-extension",
 		"directus-custom-hook"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nuxtus/hook"
+	},
 	"directus:extension": {
 		"type": "hook",
 		"path": "dist/index.js",

@@ -8,5 +8,5 @@ A Directus extension that calls the Nuxtus /api/directus/collection endpoint whe
 npm run build
 ```
 
-Place /dist/index.js in Directus project /extensions/hooks/nuxtus-hook/
+Place `/dist/index.js` in Directus project `/extensions/hooks/nuxtus-hook/`
 
