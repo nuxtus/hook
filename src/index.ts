@@ -15,13 +15,7 @@ export default defineHook(({ action }) => {
 		)
 	})
 
-	action("fields.create", async () => {
-		updateTypes()
-	})
-	action("fields.update", async () => {
-		updateTypes()
-	})
-	action("fields.delete", async () => {
-		updateTypes()
-	})
+	action("fields.create", updateTypes)
+	action("fields.update", updateTypes)
+	action("fields.delete", updateTypes)
 })
