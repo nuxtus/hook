@@ -3,7 +3,11 @@ import { defineHook } from '@directus/extensions-sdk';
 
 const updateTypes = async function () {
 	console.log("Updating types in Nuxt due to field change.")
-	await axios.post("http://localhost:3000/api/directus/field")
+	try {
+		await axios.post("http://localhost:3000/api/directus/field")
+	} catch (err) {
+		console.error(err.message)
+	}
 }
 
 export default defineHook(({ action }) => {
@@ -13,6 +17,7 @@ export default defineHook(({ action }) => {
 			"http://localhost:3000/api/directus/collection",
 			collection.payload
 		)
+		updateTypes()
 	})
 
 	action("fields.create", updateTypes)
