@@ -1,32 +1,34 @@
-import { assert, expect, test, vi } from "vitest"
+// TODO: Needs writing
 
-import axios from "axios"
+// import { assert, expect, test, vi } from "vitest"
 
-vi.mock("axios")
+// import axios from "axios"
 
-test("mocked axios", async () => {
-	await axios.get("string")
+// vi.mock("axios")
 
-	expect(axios.get).toHaveBeenCalledWith("string")
-	expect(axios.post).toBeUndefined()
-})
+// test("mocked axios", async () => {
+// 	await axios.get("string")
 
-// Edit an assertion and save to see HMR in action
+// 	expect(axios.get).toHaveBeenCalledWith("string")
+// 	expect(axios.post).toBeUndefined()
+// })
 
-test("Math.sqrt()", () => {
-	expect(Math.sqrt(4)).toBe(2)
-	expect(Math.sqrt(144)).toBe(12)
-	expect(Math.sqrt(2)).toBe(Math.SQRT2)
-})
+// // Edit an assertion and save to see HMR in action
 
-test("JSON", () => {
-	const input = {
-		foo: "hello",
-		bar: "world",
-	}
+// test("Math.sqrt()", () => {
+// 	expect(Math.sqrt(4)).toBe(2)
+// 	expect(Math.sqrt(144)).toBe(12)
+// 	expect(Math.sqrt(2)).toBe(Math.SQRT2)
+// })
 
-	const output = JSON.stringify(input)
+// test("JSON", () => {
+// 	const input = {
+// 		foo: "hello",
+// 		bar: "world",
+// 	}
 
-	expect(output).eq('{"foo":"hello","bar":"world"}')
-	assert.deepEqual(JSON.parse(output), input, "matches original")
-})
+// 	const output = JSON.stringify(input)
+
+// 	expect(output).eq('{"foo":"hello","bar":"world"}')
+// 	assert.deepEqual(JSON.parse(output), input, "matches original")
+// })
