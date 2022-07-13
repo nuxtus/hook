@@ -1,10 +1,12 @@
 import axios from "axios"
 import { defineHook } from '@directus/extensions-sdk';
 
+const nuxtServer: string = process.env.NUXT_SERVER || "http://localhost:3000"
+
 const updateTypes = async function () {
 	console.log("Updating types in Nuxt due to field change.")
 	try {
-		await axios.post("http://localhost:3000/api/directus/field")
+		await axios.post(`${nuxtServer}/api/directus/field`)
 	} catch (err: any) {
 		console.error(err.message)
 	}
@@ -16,7 +18,7 @@ export default defineHook(({ action }) => {
 		await updateTypes()
 		console.log("Creating Nuxt page for " + collection.payload.collection)
 		await axios.post(
-			"http://localhost:3000/api/directus/collection",
+			`${nuxtServer}/api/directus/collection`,
 			collection.payload
 		)
 	})
