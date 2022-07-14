@@ -1,27 +1,9 @@
-import axios from "axios"
-import { defineHook } from '@directus/extensions-sdk';
+import { createCollection, updateTypes } from "./nuxtRemote"
 
-const nuxtServer: string = process.env.NUXT_SERVER || "http://localhost:3000"
-
-const updateTypes = async function () {
-	console.log("Updating types in Nuxt due to field change.")
-	try {
-		await axios.post(`${nuxtServer}/api/directus/field`)
-	} catch (err: any) {
-		console.error(err.message)
-	}
-}
+import { defineHook } from "@directus/extensions-sdk"
 
 export default defineHook(({ action }) => {
-	action("collections.create", async (collection) => {
-		// Get types before creating page otherwise Nuxt restarts while getting them
-		await updateTypes()
-		console.log("Creating Nuxt page for " + collection.payload.collection)
-		await axios.post(
-			`${nuxtServer}/api/directus/collection`,
-			collection.payload
-		)
-	})
+	action("collections.create", createCollection)
 
 	action("fields.create", updateTypes)
 	action("fields.update", updateTypes)

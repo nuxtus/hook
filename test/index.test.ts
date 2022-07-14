@@ -1,34 +1,46 @@
-// TODO: Needs writing
+import { afterEach, expect, test, vi } from "vitest"
+import { createCollection, updateTypes } from "../src/nuxtRemote"
 
-// import { assert, expect, test, vi } from "vitest"
+import axios from "axios"
 
-// import axios from "axios"
+type CollectionPayload = {
+	url: string
+	collectionPayload?: {
+		collection: string
+		singleton: boolean
+	}
+}
 
-// vi.mock("axios")
+vi.mock("axios", () => ({
+	default: {
+		post: vi.fn().mockImplementation((url: string, collectionPayload = {}) => {
+			return {
+				url,
+				collectionPayload,
+			}
+		}),
+	},
+}))
 
-// test("mocked axios", async () => {
-// 	await axios.get("string")
+afterEach(() => {
+	vi.clearAllMocks()
+})
 
-// 	expect(axios.get).toHaveBeenCalledWith("string")
-// 	expect(axios.post).toBeUndefined()
-// })
+test("creating collection", async () => {
+	const response: unknown = await createCollection({
+		payload: {
+			collection: "nuxtus_test_collection",
+			singleton: false,
+		},
+	})
+	const result = response as CollectionPayload
+	expect(result.url).toBe("http://localhost:3000/api/directus/collection")
+	expect(axios.post).toBeCalledTimes(2) // 1 for the collection, 1 for the field creation
+})
 
-// // Edit an assertion and save to see HMR in action
-
-// test("Math.sqrt()", () => {
-// 	expect(Math.sqrt(4)).toBe(2)
-// 	expect(Math.sqrt(144)).toBe(12)
-// 	expect(Math.sqrt(2)).toBe(Math.SQRT2)
-// })
-
-// test("JSON", () => {
-// 	const input = {
-// 		foo: "hello",
-// 		bar: "world",
-// 	}
-
-// 	const output = JSON.stringify(input)
-
-// 	expect(output).eq('{"foo":"hello","bar":"world"}')
-// 	assert.deepEqual(JSON.parse(output), input, "matches original")
-// })
+test("adding field", async () => {
+	const response: unknown = await updateTypes()
+	const result = response as CollectionPayload
+	expect(result.url).toBe("http://localhost:3000/api/directus/field")
+	expect(axios.post).toBeCalledTimes(1)
+})
