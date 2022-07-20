@@ -1,7 +1,10 @@
+import { Logger, pino } from "pino"
 import { afterEach, expect, test, vi } from "vitest"
 import { createCollection, updateTypes } from "../src/nuxtRemote"
 
 import axios from "axios"
+
+const logger: Logger = pino()
 
 type CollectionPayload = {
 	url: string
@@ -19,6 +22,7 @@ vi.mock("axios", () => ({
 				collectionPayload,
 			}
 		}),
+		logger,
 	},
 }))
 
@@ -27,19 +31,22 @@ afterEach(() => {
 })
 
 test("creating collection", async () => {
-	const response: unknown = await createCollection({
-		payload: {
-			collection: "nuxtus_test_collection",
-			singleton: false,
+	const response: unknown = await createCollection(
+		{
+			payload: {
+				collection: "nuxtus_test_collection",
+				singleton: false,
+			},
 		},
-	})
+		logger
+	)
 	const result = response as CollectionPayload
 	expect(result.url).toBe("http://localhost:3000/api/directus/collection")
 	expect(axios.post).toBeCalledTimes(2) // 1 for the collection, 1 for the field creation
 })
 
 test("adding field", async () => {
-	const response: unknown = await updateTypes()
+	const response: unknown = await updateTypes(logger)
 	const result = response as CollectionPayload
 	expect(result.url).toBe("http://localhost:3000/api/directus/field")
 	expect(axios.post).toBeCalledTimes(1)
