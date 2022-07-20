@@ -22,7 +22,6 @@ vi.mock("axios", () => ({
 				collectionPayload,
 			}
 		}),
-		logger,
 	},
 }))
 
