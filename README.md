@@ -5,13 +5,17 @@ A Directus webhook extension that handles the automatic creation of Nuxt pages a
 Calls the Nuxtus /api/directus/collection endpoint when a new collection is created.
 Calls the Nuxtus /api/directus/field endpoint when fields are created, updated or deleted.
 
-> Requires the [Nuxtus Boilerplate](https://github.com/nuxtus/nuxtus)
+> We strongly recommend using [Nuxtus Boilerplate](https://github.com/nuxtus/nuxtus) if you are starting a new project. This will automatically install this hook with other useful Directus/Nuxt utilities.
 
-## Build
+For more details visit [nuxtus.com](https://nuxtus.com) or [read the documentation](https://docs.nuxtus.com)
 
-```bash
-npm run build
-```
+## Getting started
 
-Place `/dist/index.js` in Directus project `/extensions/hooks/nuxtus-hook/`
+Currently Directus extensions need to be installed manually into your existing Directus project.
+
+To do this:
+
+1. Clone this repository
+2. Build the extension `npm run build`
+3. Place `/dist/index.js` in Directus project `/extensions/hooks/nuxtus-hook/`
 
