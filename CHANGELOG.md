@@ -1,5 +1,12 @@
 Changelog
 
+## [1.2.1](https://github.com/nuxtus/hook/compare/v1.2.0...v1.2.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* :bug: no longer need to call get types on collection create ([4bf7e85](https://github.com/nuxtus/hook/commit/4bf7e85eca832d54b56a4affd00ab867fd39203e))
+
 # [1.2.0](https://github.com/nuxtus/hook/compare/v1.1.0...v1.2.0) (2022-07-21)
 
 

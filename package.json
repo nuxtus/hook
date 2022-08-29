@@ -1,6 +1,6 @@
 {
 	"name": "@nuxtus/directus-extension-nuxtus-hook",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"keywords": [
 		"directus",
 		"directus-extension",
@@ -26,10 +26,10 @@
 		"@directus/extensions-sdk": "9.13.0",
 		"@semantic-release/changelog": "^6.0.1",
 		"@semantic-release/git": "^10.0.1",
-		"@semantic-release/github": "^8.0.5",
+		"@semantic-release/github": "^8.0.6",
 		"@semantic-release/release-notes-generator": "^10.0.3",
 		"@types/node": "^18.0.0",
-		"semantic-release": "^19.0.3",
+		"semantic-release": "^19.0.5",
 		"typescript": "^4.7.4",
 		"vitest": "^0.18.0"
 	},
