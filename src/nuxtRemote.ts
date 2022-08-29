@@ -7,8 +7,6 @@ export const createCollection = async function (
 	collection: any,
 	logger: Logger
 ) {
-	// Get types before creating page otherwise Nuxt restarts while getting them
-	await updateTypes(logger)
 	logger.info("Creating Nuxt page for " + collection.payload.collection)
 	return await axios.post(
 		`${nuxtServer}/api/directus/collection`,
