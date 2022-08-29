@@ -41,7 +41,7 @@ test("creating collection", async () => {
 	)
 	const result = response as CollectionPayload
 	expect(result.url).toBe("http://localhost:3000/api/directus/collection")
-	expect(axios.post).toBeCalledTimes(2) // 1 for the collection, 1 for the field creation
+	expect(axios.post).toBeCalledTimes(1)
 })
 
 test("adding field", async () => {
