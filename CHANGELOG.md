@@ -1,5 +1,12 @@
 Changelog
 
+# [1.3.0](https://github.com/nuxtus/hook/compare/v1.2.1...v1.3.0) (2022-09-08)
+
+
+### Features
+
+* :sparkles: pages deleted when collections are ([c2bbf4e](https://github.com/nuxtus/hook/commit/c2bbf4e28f9fcf5af2c0ab26d311d3378f4f590b))
+
 ## [1.2.1](https://github.com/nuxtus/hook/compare/v1.2.0...v1.2.1) (2022-08-29)
 
 
