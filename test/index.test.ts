@@ -1,6 +1,6 @@
 import { Logger, pino } from "pino"
 import { afterEach, expect, test, vi } from "vitest"
-import { createCollection, updateTypes } from "../src/nuxtRemote"
+import { createCollection, deleteCollection, updateTypes } from "../src/nuxtRemote"
 
 import axios from "axios"
 
@@ -14,12 +14,22 @@ type CollectionPayload = {
 	}
 }
 
+type CollectionDeletePayload = {
+	url: string
+}
+
 vi.mock("axios", () => ({
 	default: {
 		post: vi.fn().mockImplementation((url: string, collectionPayload = {}) => {
 			return {
 				url,
 				collectionPayload,
+			}
+		}),
+		delete: vi.fn().mockImplementation((url: string, collection: string) => {
+			return {
+				url,
+				collection,
 			}
 		}),
 	},
@@ -42,6 +52,15 @@ test("creating collection", async () => {
 	const result = response as CollectionPayload
 	expect(result.url).toBe("http://localhost:3000/api/directus/collection")
 	expect(axios.post).toBeCalledTimes(1)
+})
+
+test("deleting collection", async () => {
+	const response: unknown = await deleteCollection({
+		payload: ["nuxtus_test_collection"]
+	}, logger)
+	const result = response as CollectionDeletePayload
+	expect(result.url).toBe("http://localhost:3000/api/directus/collection/nuxtus_test_collection")
+	expect(axios.delete).toBeCalledTimes(1)
 })
 
 test("adding field", async () => {
