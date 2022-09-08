@@ -22,6 +22,12 @@ vi.mock("axios", () => ({
 				collectionPayload,
 			}
 		}),
+		delete: vi.fn().mockImplementation((url: string, collection: string) => {
+			return {
+				url,
+				collection,
+			}
+		}),
 	},
 }))
 
