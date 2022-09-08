@@ -53,11 +53,11 @@ test("creating collection", async () => {
 test("deleting collection", async () => {
 	const response: unknown = await deleteCollection({
 		payload: {
-			collection: "nuxtus_test_collection",
+			collection: ["nuxtus_test_collection"],
 		}
 	}, logger)
 	const result = response as CollectionPayload
-	expect(result.url).toBe("http://localhost:3000/api/directus/collection")
+	expect(result.url).toBe("http://localhost:3000/api/directus/collection/nuxtus_test_collection")
 	expect(axios.delete).toBeCalledTimes(1)
 })
 
