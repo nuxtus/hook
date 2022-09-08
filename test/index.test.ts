@@ -15,7 +15,8 @@ type CollectionPayload = {
 }
 
 type CollectionDeletePayload = {
-	url: string
+	url: string,
+	collection: string[]
 }
 
 vi.mock("axios", () => ({
@@ -56,9 +57,7 @@ test("creating collection", async () => {
 
 test("deleting collection", async () => {
 	const response: unknown = await deleteCollection({
-		payload: {
-			collection: ["nuxtus_test_collection"],
-		}
+		payload: ["nuxtus_test_collection"]
 	}, logger)
 	console.log('response', response)
 	const result = response as CollectionDeletePayload
