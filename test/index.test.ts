@@ -14,6 +14,10 @@ type CollectionPayload = {
 	}
 }
 
+type CollectionDeletePayload = {
+	url: string
+}
+
 vi.mock("axios", () => ({
 	default: {
 		post: vi.fn().mockImplementation((url: string, collectionPayload = {}) => {
@@ -56,7 +60,8 @@ test("deleting collection", async () => {
 			collection: ["nuxtus_test_collection"],
 		}
 	}, logger)
-	const result = response as CollectionPayload
+	console.log('response', response)
+	const result = response as CollectionDeletePayload
 	expect(result.url).toBe("http://localhost:3000/api/directus/collection/nuxtus_test_collection")
 	expect(axios.delete).toBeCalledTimes(1)
 })
