@@ -23,7 +23,7 @@
 		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
-		"@directus/extensions-sdk": "9.17.4",
+		"@directus/extensions-sdk": "9.20.4",
 		"@semantic-release/changelog": "6.0.1",
 		"@semantic-release/git": "10.0.1",
 		"@semantic-release/github": "8.0.6",
