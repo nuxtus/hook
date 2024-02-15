@@ -31,7 +31,7 @@
 		"@types/node": "18.11.9",
 		"semantic-release": "19.0.5",
 		"typescript": "5.3.3",
-		"vitest": "0.23.2"
+		"vitest": "1.2.2"
 	},
 	"publishConfig": {
 		"access": "public",
