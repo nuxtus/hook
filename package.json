@@ -55,8 +55,8 @@
 							"release": "minor"
 						},
 						{
-						  "type": "fix",
-						  "release": "patch"
+							"type": "fix",
+							"release": "patch"
 						}
 					]
 				}
@@ -72,5 +72,8 @@
 			"@semantic-release/git",
 			"@semantic-release/github"
 		]
+	},
+	"volta": {
+		"node": "20.11.1"
 	}
 }
