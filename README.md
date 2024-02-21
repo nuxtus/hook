@@ -19,3 +19,10 @@ To do this:
 2. Build the extension `npm run build`
 3. Place `/dist/index.js` in Directus project `/extensions/hooks/nuxtus-hook/`
 
+## Testing
+
+Running `vitest` in watch mode gives error "too many symbolic links encountered". Use run instead:
+
+```bash
+./node_modules/.bin/vitest run
+```

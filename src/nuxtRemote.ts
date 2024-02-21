@@ -14,11 +14,14 @@ export const createCollection = async function (
 	)
 }
 
-export const deleteCollection = async function (collection: any, logger: Logger) {
+export const deleteCollection = async function (
+	collection: any,
+	logger: Logger
+) {
 	const collectionName: string = collection.payload[0]
 	logger.info("Deleting Nuxt page " + collectionName)
 	return await axios.delete(
-		`${nuxtServer}/api/directus/collection/${collectionName}`,
+		`${nuxtServer}/api/directus/collection/${collectionName}`
 	)
 }
 
